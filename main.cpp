@@ -356,13 +356,13 @@ extern "C" void* ThreadStats(void*) {
   } while(1);
 }
 
-static const string mainnet_seeds[] = {"static-dnsseed.darkcoin.io", "static-dnsseed.dashdot.io", ""};
-static const string testnet_seeds[] = {"static-testnet-seed.darkcoin.io", "static-testnet-seed.dashdot.io", ""};
+static const string mainnet_seeds[] = {"dnsseed1.linc.site", "dnsseed2.linc.site", "dnsseed3.linc.site", "dnsseed4.linc.site", ""};
+static const string testnet_seeds[] = {"testnet-seed.linc.site", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
   if (!fTestNet){
-    db.Add(CService("darkcoin.io", 9999), true);
+    db.Add(CService("linc.site", 17222), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {
